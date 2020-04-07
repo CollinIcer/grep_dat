@@ -32,7 +32,20 @@ while num>0:
 		break
 		
 out_fp.close
+#
+import binascii
+import struct
+in_fp = open("test.wav","rb")
+out_fp = open("test.dat","w")
 
+while 1:
+	dat = in_fp.read(2)
+	if(len(dat)>0):
+		out_fp.write(str(binascii.b2a_hex(dat)) + '\n')
+	else:
+		break
+		
+out_fp.close
 
 #dat2bin
 in_fp = open("eqcoef.dat")
