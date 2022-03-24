@@ -74,7 +74,21 @@ while 1:
 	out_fp.write(struct.pack('B',dat_h))
 
 
+import binascii
+import struct
+in_fp = open("LR125K_3SLOT_PB8","rb")
+out_fp = open("test.dat","w")
 
+while 1:
+	dat = in_fp.read(1)
+	if(len(dat)>0):
+		#out_fp.write(str(binascii.b2a_hex(dat)) + '\n')
+		out_fp.write(hex(struct.unpack("B",dat)[0])+ '\n')
+
+	else:
+		break
+		
+out_fp.close
 
 
 
